@@ -1,21 +1,79 @@
 *{
     font-family: "Protest Strike", sans-serif;
 }
-nav{
-    position: sticky;
-    top: 0;
-    background-color: rgb(26, 37, 55);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px 0 20px;
-    z-index: 100;
+nav {
+  position: sticky;
+  top: 0;
+  background-color: rgb(26, 37, 55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 60px; 
+  z-index: 100;
 }
-.navbarlink{
-    padding-left: 30px;
-    font-size: 25px;
-    text-decoration: none;
-    color: white;
+
+.navbarlink {
+  padding: 10px 0; /* Adjust padding for better spacing */
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  text-align: center; /* Center text in mobile view */
 }
+
+.navbarlink {
+  color: #ffffff;
+  position: relative;
+  text-decoration: none;
+}
+
+.navbarlink::before {
+  background: rgb(85, 173, 223);
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.navbarlink:hover::before {
+  transform: scaleX(1) scaleY(2);
+  transform-origin: left;
+}
+
+.logo {
+  max-width: 100%; /* Ensure the image is responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+.logo2 {
+  max-width: 100%; /* Ensure the image is responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+      flex-direction: row; /* Switch back to row for larger screens */
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .navbarlink {
+      padding: 0 30px; /* Adjust padding for larger screens */
+      font-size: 25px;
+      text-align: left; /* Align text to the left for larger screens */
+  }
+
+  .logo {
+      max-width: 200px; /* Adjust the max-width for larger screens */
+      padding: 50px 0;
+  }
+  .logo2 {
+    max-width: 175px; /* Adjust the max-width for larger screens */
+    padding: 50px 0;
+  }
+}
+
 
 :root{
     --background-dark: rgb(26, 37, 55);
@@ -290,4 +348,17 @@ nav{
   100% {
     background-positon-x: 0px;
   }
+}
+
+.register{
+  padding: 0 20px;
+  font-size: 40px;
+  margin: 100px;
+  border-radius: 20px;
+  border: none;
+  background-color: darkgoldenrod;
+  transition: font-size 0.3s ease;
+}
+.register:hover{
+  font-size: 50px;
 }
