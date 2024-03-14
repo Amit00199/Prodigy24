@@ -1,5 +1,5 @@
 *{
-    font-family: "Protest Strike", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 nav {
   position: sticky;
@@ -28,6 +28,7 @@ nav {
 
 .navbarlink::before {
   background: rgb(85, 173, 223);
+  border-radius: 50px;
   content: "";
   inset: 0;
   position: absolute;
@@ -97,18 +98,10 @@ nav {
     background-color: transparent;
   }
   
-  html{
-    height: 100%;
-    font-size: 14px;
-  }
-  
-  body{
-    height: 100%;
-  }
-  
   .hero-section{
     align-items: flex-start;
-    background-image: linear-gradient(15deg, #fff 0%, #fff 150%);
+    background-image: linear-gradient(15deg, transparent 0%, transparent 150%); 
+    /* yaha pe thik kr color card ka*/
     display: flex;
     min-height: 100%;
     justify-content: center;
@@ -129,7 +122,13 @@ nav {
 
 
   .card-grid:hover > .card:not(:hover) .card__background{
-    filter: brightness(0.5) saturate(0) contrast(1.2) /*blur(5px)*/; 
+    filter: brightness(0.5)  contrast(1.2) /*blur(5px)*/;
+    transition: 500ms ease-in-out; 
+    /* CHECK */
+  }
+  .card:hover .card__background{
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(2px); 
+    transition: 500ms ease-in-out;
     /* CHECK */
   }
   
@@ -157,6 +156,8 @@ nav {
     border: none;
     padding-bottom: 150%;
     width: 100%;
+    background-color: transparent;
+    border-radius: 10000px;
   }
   
   .card__background{
@@ -190,6 +191,7 @@ nav {
     background-color: transparent;
     border: none;
     top: 0;
+    transition: 2s ease-in-out;
   }
   
   .card__category{
@@ -198,22 +200,65 @@ nav {
     margin-bottom: var(--spacing-s);
     text-transform: uppercase;
   }
-  
+  p{
+    margin-bottom: 0;
+}
   .card__heading{
     color: var(--text-lighter);
-    font-size: 1.9rem;
-    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.195);
     line-height: 1.4;
-    word-spacing: 100vw;
+    
+  }
+  @media(min-width: 540px){
+    .card__heading{
+      font-size: 35px; 
+    }
+    .para{
+      font-size: 20px;
+    }
+  }
+  
+  @media(min-width: 960px){
+    .card__heading{
+      font-size: 25px; 
+    }
+    .para{
+      font-size: 15px;
+    }
   }
   .para {
     display: none;
-    transition: opacity 200ms linear; /* Optional: Add a transition for a smoother effect */
-}
-.card:hover .para {
+    transition: opacity 200ms linear;
+  }
+  .card__heading {
+    display: none;
+    transition: opacity 200ms linear;
+  }
+
+
+  .card:hover .para,
+  .card:hover .card_buttons,
+  .card:hover .card__heading {
     display: block;
     opacity: 1;
-}
+  }
+
+  .card_buttons {
+    position:absolute ;
+    bottom: 0px; /* Adjust the distance from the bottom as needed */
+    margin-top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d9bb27; /* Change the background color as needed */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: none;
+    opacity: 0;
+    transition: opacity 200ms linear;
+  }
 .content-container {
     position: relative;
     z-index: 1;
@@ -221,10 +266,12 @@ nav {
 .headings{
     font-size: 50px;
     font-weight: bold;
+    margin: 0;
 }
 .aboutsection{
     font-size: 20px;
     padding: 20px 70px;
+    margin: 0;
 }
 * {
   margin: 0;
@@ -240,10 +287,8 @@ nav {
   background: #1a2537;
   min-height: 100px;
   padding: 20px 50px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .social-icon,
@@ -252,8 +297,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
   flex-wrap: wrap;
+
 }
 
 .social-icon__item,
@@ -264,7 +309,7 @@ nav {
 .social-icon__link {
   font-size: 2rem;
   color: #fff;
-  margin: 0 10px;
+  margin: 0 8px;
   display: inline-block;
   transition: 0.5s;
 }
@@ -295,6 +340,7 @@ nav {
 }
 
 .wave {
+  
   position: absolute;
   top: -100px;
   left: 0;
@@ -356,9 +402,17 @@ nav {
   margin: 100px;
   border-radius: 20px;
   border: none;
-  background-color: darkgoldenrod;
-  transition: font-size 0.3s ease;
+  background-color: rgb(240, 190, 66);
+  transition:0.3s ease;
 }
 .register:hover{
-  font-size: 50px;
+  transform: scale(1.2);
+}
+.card {
+  background-color: transparent;
+  background-clip: initial;
+  border: none;
+}
+.Sponsors{
+  background-blend-mode: color-burn;
 }
