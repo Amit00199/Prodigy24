@@ -13,3 +13,21 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }, 1000);
+document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navbarLinks = document.querySelector('.navbar-links');
+
+  menuToggle.addEventListener('click', function () {
+      navbarLinks.classList.toggle('active');
+  });
+});
+
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+    x.style.transition = "1s ease-in-out";
+  }
+}
